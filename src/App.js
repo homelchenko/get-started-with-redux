@@ -17,7 +17,9 @@ class App extends Component {
         </p>
 
         <div>
-          <p>{counter(0, { type: 'INCREMENT'})}</p>
+          <p>{counter(8, { type: 'INCREMENT'})}</p>
+          <p>{counter(3, { type: 'DECREMENT'})}</p>
+          <p>{counter(undefined, { type: 'INCREMENT'})}</p>
         </div>
       </div>
     );

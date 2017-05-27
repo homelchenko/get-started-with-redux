@@ -1,0 +1,14 @@
+{
+  "name": "getting_started_with_redux",
+  "version": "1.0.0",
+  "description": "Getting Started with Redux video by Dan Abramov",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "redux"
+  ],
+  "author": "",
+  "license": "ISC"
+}

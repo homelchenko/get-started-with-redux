@@ -1,5 +1,3 @@
-import { createStore } from './createStore';
-
 const counter = (state = 0, action) => {
     switch (action.type) {
         case 'INCREMENT':
@@ -11,6 +9,4 @@ const counter = (state = 0, action) => {
     }
 };
 
-const store = createStore(counter);
-
-export { store };
+export default counter;

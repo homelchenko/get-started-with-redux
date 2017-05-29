@@ -27,4 +27,4 @@ const createStore = (reducer) => {
     }
 };
 
-export { createStore };
+export default createStore;

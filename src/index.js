@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 
 import Counter from './counter';
 
-import { createStore } from './createStore';
+import createStore from './createStore';
 import counter from './counterReducer';
 
 const store = createStore(counter);
-
 
 const render = () => {
     ReactDOM.render(

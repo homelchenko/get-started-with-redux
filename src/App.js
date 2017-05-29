@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import counter from './counterReducer';
+import { store } from './counterReducer';
 
 class App extends Component {
   render() {
@@ -17,9 +17,7 @@ class App extends Component {
         </p>
 
         <div>
-          <p>{counter(8, { type: 'INCREMENT'})}</p>
-          <p>{counter(3, { type: 'DECREMENT'})}</p>
-          <p>{counter(undefined, { type: 'INCREMENT'})}</p>
+          <p>{store.getState()}</p>
         </div>
       </div>
     );

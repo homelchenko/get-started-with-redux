@@ -1,11 +1,13 @@
+import { combineReducers } from 'redux';
+
 import todos from './todoReducer';
 import visibilityFilter from './visibilityFilter';
 
-const todoAppReducer = (state = {}, action) => {
-    return {
-        todos: todos(state.todos, action),
-        visibilityFilter: visibilityFilter(state.visibilityFilter, action)
-    };
-};
+const reducer = combineReducers({
+    todos: todos,
+    visibilityFilter: visibilityFilter
+});
 
-export default todoAppReducer;
+export { reducer };
+
+export default reducer;

@@ -4,8 +4,8 @@ import todos from './todoReducer';
 import visibilityFilter from './visibilityFilter';
 
 const reducer = combineReducers({
-    todos: todos,
-    visibilityFilter: visibilityFilter
+    todos,
+    visibilityFilter
 });
 
 export { reducer };

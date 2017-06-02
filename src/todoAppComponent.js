@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import store from './store.js';
 
-let counter = 0;
+let nextTodoId = 0;
 
 export default class TodoApp extends Component {
     render() {
@@ -11,7 +11,7 @@ export default class TodoApp extends Component {
                 <button onClick={() => store.dispatch({
                     type: 'ADD_TODO',
                     text: 'Test',
-                    id: counter++,
+                    id: nextTodoId++,
                     completed: false    
                 })}>
                     Add Todo

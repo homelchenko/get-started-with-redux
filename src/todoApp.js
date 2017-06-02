@@ -8,6 +8,4 @@ const reducer = combineReducers({
     visibilityFilter
 });
 
-export { reducer };
-
 export default reducer;

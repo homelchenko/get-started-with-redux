@@ -1,4 +1,4 @@
-import { combineReducers } from './combineReducers';
+import { combineReducers, createStore } from 'redux';
 
 import todos from './todoReducer';
 import visibilityFilter from './visibilityFilter';
@@ -8,4 +8,7 @@ const reducer = combineReducers({
     visibilityFilter
 });
 
-export default reducer;
+const store = createStore(reducer);
+
+export default store;
+

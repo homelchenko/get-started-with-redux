@@ -6,8 +6,30 @@ import FilterLink from './FilterLink';
 
 let nextTodoId = 0;
 
+const getVisibleTodos = (todos, filter) => {
+    switch (filter) {
+        case 'SHOW_ALL':
+            return todos;
+        case 'SHOW_COMPLETED':
+            return todos.filter(
+                todo => todo.completed
+            );
+        case 'SHOW_ACTIVE':
+            return todos.filter(
+                todo => !todo.completed
+            );
+        default:
+            throw new Error(`Unknown filter type (${filter})`);
+    }
+}
+
 export default class TodoApp extends Component {
     render() {
+        const visibleTodos = getVisibleTodos(
+            this.props.todos,
+            this.props.visibilityFilter
+        );
+
         return (
             <div>
                 <input ref={node => {
@@ -25,7 +47,7 @@ export default class TodoApp extends Component {
                     Add Todo
                 </button>
                 <ul>
-                    {this.props.todos.map(todo => 
+                    {visibleTodos.map(todo => 
                         <li key={todo.id}
                             onClick={() => {
                                 store.dispatch({

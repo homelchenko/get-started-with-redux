@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import store from './store';
 
-import Todo from './todoComponent';
+import TodoList from './todoListComponent';
 import FilterLink from './FilterLink';
 
 let nextTodoId = 0;
@@ -52,20 +52,15 @@ export default class TodoApp extends Component {
                 }}  >
                     Add Todo
                 </button>
-                <ul>
-                    {visibleTodos.map(todo => 
-                        <Todo key={todo.id}
-                            onClick={() => {
-                                store.dispatch({
-                                    type: 'TOGGLE_TODO',
-                                    id: todo.id
-                                });
-                            }}
-                            {...todo}
-                        >
-                        </Todo>
-                    )}
-                </ul>
+                <TodoList
+                    todos={visibleTodos}
+                    onTodoClick={id =>
+                        store.dispatch({
+                            type: 'TOGGLE_TODO',
+                            id
+                        })
+                    }
+                />
                 <p>
                     Show:
                     {' '}

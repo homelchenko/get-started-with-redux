@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import store from './store.js';
+import store from './store';
 
+import Todo from './todoComponent';
 import FilterLink from './FilterLink';
 
 let nextTodoId = 0;
@@ -53,20 +54,18 @@ export default class TodoApp extends Component {
                 </button>
                 <ul>
                     {visibleTodos.map(todo => 
-                        <li key={todo.id}
+                        <Todo key={todo.id}
                             onClick={() => {
                                 store.dispatch({
                                     type: 'TOGGLE_TODO',
                                     id: todo.id
                                 });
-                            }}                            
-                            style={{
-                                textDecoration: todo.completed ? 
-                                    'line-through' :
-                                    'none'
-                            }}>
-                            {todo.text}
-                        </li>
+                            }}
+                            id={todo.id}
+                            text={todo.text}
+                            completed={todo.completed}
+                        >
+                        </Todo>
                     )}
                 </ul>
                 <p>

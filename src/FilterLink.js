@@ -4,8 +4,12 @@ import store from './store';
 
 const FilterLink = ({
     filter,
+    currentFilter,
     children
 }) => {
+    if (currentFilter === filter)
+        return <span>{children}</span>;
+
     return (
         <a href='#'
             onClick={e => {

@@ -2,7 +2,6 @@ import React from 'react';
 
 export default ({
     onClick,
-    id,
     text,
     completed
 }) => {

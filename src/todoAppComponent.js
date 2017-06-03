@@ -61,9 +61,7 @@ export default class TodoApp extends Component {
                                     id: todo.id
                                 });
                             }}
-                            id={todo.id}
-                            text={todo.text}
-                            completed={todo.completed}
+                            {...todo}
                         >
                         </Todo>
                     )}

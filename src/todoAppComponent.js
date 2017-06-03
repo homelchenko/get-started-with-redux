@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import store from './store.js';
 
+import FilterLink from './FilterLink';
+
 let nextTodoId = 0;
 
 export default class TodoApp extends Component {
@@ -40,6 +42,27 @@ export default class TodoApp extends Component {
                         </li>
                     )}
                 </ul>
+                <p>
+                    Show:
+                    {' '}
+                    <FilterLink
+                        filter='SHOW_ALL'
+                    >
+                        All
+                    </FilterLink>
+                    {' '}
+                    <FilterLink
+                        filter='SHOW_ACTIVE'
+                    >
+                        Active
+                    </FilterLink>
+                    {' '}
+                    <FilterLink
+                        filter='SHOW_COMPLETED'
+                    >
+                        Completed
+                    </FilterLink>
+                </p>
             </div>
         )
     }

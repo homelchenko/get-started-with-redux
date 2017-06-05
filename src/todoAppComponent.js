@@ -4,7 +4,7 @@ import store from './store';
 
 import AddTodo from './addTodoComponent';
 import TodoList from './todoListComponent';
-import FilterLink from './FilterLink';
+import Footer from './FooterComponent';
 
 let nextTodoId = 0;
 
@@ -56,48 +56,15 @@ export default class TodoApp extends Component {
                         })
                     }
                 />
-                <p>
-                    Show:
-                    {' '}
-                    <FilterLink
-                        filter='SHOW_ALL'
-                        currentFilter={visibilityFilter}
-                        onClick={filter =>
-                            store.dispatch({
-                                type: 'SET_VISIBILITY_FILTER',
-                                filter
-                            })
-                        }
-                    >
-                        All
-                    </FilterLink>
-                    {' '}
-                    <FilterLink
-                        filter='SHOW_ACTIVE'
-                        currentFilter={visibilityFilter}
-                        onClick={filter =>
-                            store.dispatch({
-                                type: 'SET_VISIBILITY_FILTER',
-                                filter
-                            })
-                        }
-                    >
-                        Active
-                    </FilterLink>
-                    {' '}
-                    <FilterLink
-                        filter='SHOW_COMPLETED'
-                        currentFilter={visibilityFilter}
-                        onClick={filter =>
-                            store.dispatch({
-                                type: 'SET_VISIBILITY_FILTER',
-                                filter
-                            })
-                        }
-                    >
-                        Completed
-                    </FilterLink>
-                </p>
+                <Footer
+                    visibilityFilter={visibilityFilter}
+                    onFilterClick={filter =>
+                        store.dispatch({
+                            type: 'SET_VISIBILITY_FILTER',
+                            filter
+                        })
+                    }
+                />
             </div>
         )
     }

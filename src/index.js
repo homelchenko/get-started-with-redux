@@ -7,14 +7,14 @@ import TodoApp from './todoAppComponent';
 
 store.dispatch({
     type: 'ADD_TODO',
-    id: 0,
+    id: -2,
     text: 'Buy milk',
     completed: false
 });
 
 store.dispatch({
     type: 'ADD_TODO',
-    id: 1,
+    id: -1,
     text: 'Do the dishes',
     completed: true
 });

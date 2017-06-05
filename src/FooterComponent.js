@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FilterLink from './FilterLink';
+import FilterLink from './FilterLinkComponent';
 
 export default ({
     visibilityFilter,

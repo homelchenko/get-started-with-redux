@@ -2,10 +2,7 @@ import React from 'react';
 
 import FilterLink from './FilterLinkComponent';
 
-export default ({
-    visibilityFilter,
-    onFilterClick
-}) => {
+export default () => {
     return (
         <div>
             <p>
@@ -13,24 +10,18 @@ export default ({
                 {' '}
                 <FilterLink
                     filter='SHOW_ALL'
-                    currentFilter={visibilityFilter}
-                    onClick={onFilterClick}
                 >
                     All
                 </FilterLink>
                 {' '}
                 <FilterLink
                     filter='SHOW_ACTIVE'
-                    currentFilter={visibilityFilter}
-                    onClick={onFilterClick}
                 >
                     Active
                 </FilterLink>
                 {' '}
                 <FilterLink
                     filter='SHOW_COMPLETED'
-                    currentFilter={visibilityFilter}
-                    onClick={onFilterClick}
                 >
                     Completed
                 </FilterLink>

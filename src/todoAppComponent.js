@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import store from './store';
 
+import AddTodo from './addTodoComponent';
 import TodoList from './todoListComponent';
 import FilterLink from './FilterLink';
 
@@ -38,20 +39,14 @@ export default class TodoApp extends Component {
 
         return (
             <div>
-                <input ref={node => {
-                    this.input = node
-                }} />
-                <button onClick={() => {
+                <AddTodo onAddClick={(text) =>
                     store.dispatch({
                         type: 'ADD_TODO',
-                        text: this.input.value,
+                        text,
                         id: nextTodoId++,
                         completed: false    
-                    });
-                    this.input.value = '';
-                }}  >
-                    Add Todo
-                </button>
+                    })
+                } />
                 <TodoList
                     todos={visibleTodos}
                     onTodoClick={id =>

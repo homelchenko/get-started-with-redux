@@ -62,10 +62,10 @@ export default class TodoApp extends Component {
                     <FilterLink
                         filter='SHOW_ALL'
                         currentFilter={visibilityFilter}
-                        onClick={() =>
+                        onClick={filter =>
                             store.dispatch({
                                 type: 'SET_VISIBILITY_FILTER',
-                                filter: 'SHOW_ALL'
+                                filter
                             })
                         }
                     >
@@ -75,10 +75,10 @@ export default class TodoApp extends Component {
                     <FilterLink
                         filter='SHOW_ACTIVE'
                         currentFilter={visibilityFilter}
-                        onClick={() =>
+                        onClick={filter =>
                             store.dispatch({
                                 type: 'SET_VISIBILITY_FILTER',
-                                filter: 'SHOW_ACTIVE'
+                                filter
                             })
                         }
                     >
@@ -88,10 +88,10 @@ export default class TodoApp extends Component {
                     <FilterLink
                         filter='SHOW_COMPLETED'
                         currentFilter={visibilityFilter}
-                        onClick={() =>
+                        onClick={filter =>
                             store.dispatch({
                                 type: 'SET_VISIBILITY_FILTER',
-                                filter: 'SHOW_COMPLETED'
+                                filter
                             })
                         }
                     >

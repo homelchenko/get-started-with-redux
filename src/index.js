@@ -20,8 +20,8 @@ store.dispatch({
 });
 
 ReactDOM.render(
-        <TodoApp
-            { ...store.getState()}
-        />,
-        document.getElementById('root')
+    <TodoApp
+        { ...store.getState()}
+    />,
+    document.getElementById('root')
 );

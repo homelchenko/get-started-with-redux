@@ -3,32 +3,12 @@ import React from 'react';
 import store from './store';
 
 import AddTodo from './addTodoComponent';
-import TodoList from './todoListComponent';
+import VisibleTodoListComponent from './visibleTodoListComponent';
 import Footer from './FooterComponent';
 
 let nextTodoId = 0;
 
-const getVisibleTodos = (todos, filter) => {
-    switch (filter) {
-        case 'SHOW_ALL':
-            return todos;
-        case 'SHOW_COMPLETED':
-            return todos.filter(
-                todo => todo.completed
-            );
-        case 'SHOW_ACTIVE':
-            return todos.filter(
-                todo => !todo.completed
-            );
-        default:
-            throw new Error(`Unknown filter type (${filter})`);
-    }
-}
-
-export default ({
-    todos,
-    visibilityFilter
-}) => (
+export default (props) => (
     <div>
         <AddTodo onAddClick={(text) =>
             store.dispatch({
@@ -38,19 +18,8 @@ export default ({
                 completed: false
             })
         } />
-        <TodoList
-            todos={
-                getVisibleTodos(
-                    todos,
-                    visibilityFilter
-                )
-            }
-            onTodoClick={id =>
-                store.dispatch({
-                    type: 'TOGGLE_TODO',
-                    id
-                })
-            }
+        <VisibleTodoListComponent
+            { ...props }
         />
         <Footer />
     </div>

@@ -1,13 +1,13 @@
 import React from 'react';
 
 import AddTodo from './addTodoComponent';
-import VisibleTodoListComponent from './visibleTodoListComponent';
+import VisibleTodoList from './visibleTodoListComponent';
 import Footer from './FooterComponent';
 
 export default (props) => (
     <div>
         <AddTodo />
-        <VisibleTodoListComponent
+        <VisibleTodoList
             { ...props }
         />
         <Footer />

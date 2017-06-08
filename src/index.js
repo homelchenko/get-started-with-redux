@@ -19,14 +19,9 @@ store.dispatch({
     completed: true
 });
 
-const render = () => {
-    ReactDOM.render(
+ReactDOM.render(
         <TodoApp
             { ...store.getState()}
         />,
         document.getElementById('root')
-    );
-}
-
-store.subscribe(() => render());
-render();
+);

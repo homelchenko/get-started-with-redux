@@ -32,7 +32,7 @@ export default class VisibleTodoListComponent extends Component {
     }
 
     render() {
-        const {todos, visibilityFilter} = this.props;
+        const {todos, visibilityFilter} = store.getState();
 
         return (
          <TodoList

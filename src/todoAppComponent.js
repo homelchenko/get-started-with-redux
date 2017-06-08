@@ -7,9 +7,7 @@ import Footer from './FooterComponent';
 export default (props) => (
     <div>
         <AddTodo />
-        <VisibleTodoList
-            { ...props }
-        />
+        <VisibleTodoList />
         <Footer />
     </div>
 )

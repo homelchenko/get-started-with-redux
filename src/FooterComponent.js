@@ -16,14 +16,14 @@ export default ({
                 >
                     All
                 </FilterLink>
-                {' '}
+                {', '}
                 <FilterLink
                     store={store}
                     filter='SHOW_ACTIVE'
                 >
                     Active
                 </FilterLink>
-                {' '}
+                {', '}
                 <FilterLink
                     store={store}
                     filter='SHOW_COMPLETED'

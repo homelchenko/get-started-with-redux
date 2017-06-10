@@ -1,8 +1,8 @@
 import React from 'react';
 
-import store from './store';
-
-export default () => {
+export default ({
+    store
+}) => {
     let input;
 
     let nextTodoId = 0;

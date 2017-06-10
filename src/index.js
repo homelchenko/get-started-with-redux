@@ -21,7 +21,7 @@ store.dispatch({
 
 ReactDOM.render(
     <TodoApp
-        { ...store.getState()}
+        store={store}
     />,
     document.getElementById('root')
 );

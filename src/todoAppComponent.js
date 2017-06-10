@@ -4,10 +4,12 @@ import AddTodo from './addTodoComponent';
 import VisibleTodoList from './visibleTodoListComponent';
 import Footer from './FooterComponent';
 
-export default () => (
+export default ({
+    store
+}) => (
     <div>
-        <AddTodo />
-        <VisibleTodoList />
-        <Footer />
+        <AddTodo store={store}/>
+        <VisibleTodoList store={store}/>
+        <Footer store={store}/>
     </div>
 )

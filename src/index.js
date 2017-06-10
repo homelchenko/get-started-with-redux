@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import store from './store';
 
+import Provider from './providerComponent';
 import TodoApp from './todoAppComponent';
 
 store.dispatch({
@@ -20,8 +21,8 @@ store.dispatch({
 });
 
 ReactDOM.render(
-    <TodoApp
-        store={store}
-    />,
+    <Provider store={store}>
+        <TodoApp />
+    </Provider>,
     document.getElementById('root')
 );

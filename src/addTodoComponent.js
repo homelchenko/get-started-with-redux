@@ -1,8 +1,7 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
-export default ({
-    store
-}) => {
+const addTodoComponent = (props, { store }) => {
     let input;
 
     let nextTodoId = 0;
@@ -26,3 +25,9 @@ export default ({
         </div>
     );
 }
+
+addTodoComponent.contextTypes = {
+    store: PropTypes.object
+}
+
+export default addTodoComponent;

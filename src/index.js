@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import store from './store';
+import { Provider } from 'react-redux';
 
-import Provider from './providerComponent';
+import store from './store';
 import TodoApp from './todoAppComponent';
 
 store.dispatch({

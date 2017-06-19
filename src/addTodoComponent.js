@@ -1,7 +1,7 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
 
-const addTodoComponent = (props, { store }) => {
+const addTodoComponent = ({ dispatch }) => {
     let input;
 
     let nextTodoId = 0;
@@ -13,7 +13,7 @@ const addTodoComponent = (props, { store }) => {
             }} />
             <button
                 onClick={() => {
-                    store.dispatch({
+                    dispatch({
                         type: 'ADD_TODO',
                         id: nextTodoId++,
                         text: input.value,
@@ -26,8 +26,6 @@ const addTodoComponent = (props, { store }) => {
     );
 }
 
-addTodoComponent.contextTypes = {
-    store: PropTypes.object
-}
+const addTodoContainer = connect()(addTodoComponent);
 
-export default addTodoComponent;
+export default addTodoContainer;

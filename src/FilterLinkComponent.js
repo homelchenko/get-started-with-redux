@@ -11,16 +11,22 @@ const stateToProps = (
     };
 };
 
+const setVisibilityFilter = (filter) => {
+    return {
+        type: 'SET_VISIBILITY_FILTER',
+        filter
+    }
+};
+
 const dispatchToProps = (
     dispatch,
     ownProps
 ) => {
     return {
         onClick: () =>
-            dispatch({
-                type: 'SET_VISIBILITY_FILTER',
-                filter: ownProps.filter
-        })
+            dispatch(
+                setVisibilityFilter(ownProps.filter)
+            )
     };
 };
 

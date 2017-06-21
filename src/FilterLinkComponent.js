@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 
+import { setVisibilityFilter } from './actionCreators';
 import Link from './linkComponent';
 
 const stateToProps = (
@@ -9,13 +10,6 @@ const stateToProps = (
     return {
         active: ownProps.filter === state.visibilityFilter
     };
-};
-
-const setVisibilityFilter = (filter) => {
-    return {
-        type: 'SET_VISIBILITY_FILTER',
-        filter
-    }
 };
 
 const dispatchToProps = (

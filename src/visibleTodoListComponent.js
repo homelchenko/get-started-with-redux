@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 
+import { toggleTodo } from './actionCreators';
 import TodoList from './todoListComponent';
 
 const getVisibleTodos = (todos, filter) => {
@@ -27,13 +28,6 @@ const mapStateToProps = (state) => {
         )
     }
 }
-
-const toggleTodo = (id) => {
-    return {
-        type: 'TOGGLE_TODO',
-        id
-    }
-};
 
 const mapDispatchToProps = (dispatch) => {
     return {

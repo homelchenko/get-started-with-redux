@@ -8,7 +8,23 @@ const reducer = combineReducers({
     visibilityFilter
 });
 
-const store = createStore(reducer);
+const initialState = {
+    todos: [{
+        type: 'ADD_TODO',
+        id: -2,
+        text: 'Buy milk',
+        completed: false
+    }, {
+        type: 'ADD_TODO',
+        id: -1,
+        text: 'Do the dishes',
+        completed: true
+    }]
+};
+
+const store = createStore(
+    reducer,
+    initialState);
 
 export default store;
 

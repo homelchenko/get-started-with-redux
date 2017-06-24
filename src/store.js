@@ -34,5 +34,9 @@ const store = createStore(
     reducer,
     persistedState);
 
+store.subscribe(() => {
+    saveState(store.getState());
+});
+
 export default store;
 

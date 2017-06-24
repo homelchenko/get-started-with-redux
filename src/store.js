@@ -1,4 +1,5 @@
 import { combineReducers, createStore } from 'redux';
+import throttle from 'lodash/throttle';
 import { v4 } from 'node-uuid';
 
 import todos from './todoReducer';
@@ -35,11 +36,11 @@ const store = createStore(
     reducer,
     persistedState);
 
-store.subscribe(() => {
+store.subscribe(throttle(() => {
     saveState({
         todos: store.getState().todos
     });
-});
+}, 1000));
 
 export default store;
 

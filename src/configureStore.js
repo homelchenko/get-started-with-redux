@@ -7,11 +7,6 @@ import { loadState, saveState } from './localStorage';
 
 import visibilityFilter from './visibilityFilterReducer';
 
-const reducer = combineReducers({
-    todos,
-    visibilityFilter
-});
-
 const initialState = {
     todos: [{
         type: 'ADD_TODO',
@@ -32,15 +27,23 @@ if (!persistedState) {
     saveState(persistedState);
 }
 
-const store = createStore(
-    reducer,
-    persistedState);
-
-store.subscribe(throttle(() => {
-    saveState({
-        todos: store.getState().todos
+const configureStore = () => {
+    const reducer = combineReducers({
+        todos,
+        visibilityFilter
     });
-}, 1000));
 
-export default store;
+    const store = createStore(
+        reducer,
+        persistedState);
 
+    store.subscribe(throttle(() => {
+        saveState({
+            todos: store.getState().todos
+        });
+    }, 1000));
+
+    return store;
+}
+
+export default configureStore;

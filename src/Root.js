@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import { Provider } from 'react-redux';
 
 import TodoApp from './todoAppComponent';
@@ -8,5 +9,9 @@ const Root = ({ store }) => (
         <TodoApp />
     </Provider>
 );
+
+Root.propTypes = {
+    store: PropTypes.object.isRequired,
+}
 
 export default Root;

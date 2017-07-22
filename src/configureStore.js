@@ -5,8 +5,6 @@ import { v4 } from 'node-uuid';
 import todos from './todoReducer';
 import { loadState, saveState } from './localStorage';
 
-import visibilityFilter from './visibilityFilterReducer';
-
 const initialState = {
     todos: [{
         type: 'ADD_TODO',
@@ -30,7 +28,6 @@ if (!persistedState) {
 const configureStore = () => {
     const reducer = combineReducers({
         todos,
-        visibilityFilter
     });
 
     const store = createStore(

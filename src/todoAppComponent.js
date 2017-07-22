@@ -5,11 +5,14 @@ import VisibleTodoList from './visibleTodoList';
 import Footer from './FooterComponent';
 
 export default ({
-    store
+    store,
+    match: { params }
 }) => (
     <div>
         <AddTodo />
-        <VisibleTodoList />
+        <VisibleTodoList
+            filter={params.filter || 'all'}
+        />
         <Footer />
     </div>
 )

@@ -33,9 +33,9 @@ const mapDispatchToProps = (dispatch) => ({
     }
 });
 
-const VisibleTodoListComponent = connect(
+const VisibleTodoList = connect(
     mapStateToProps,
     mapDispatchToProps
 )(TodoList);
 
-export default VisibleTodoListComponent ;
+export default VisibleTodoList ;

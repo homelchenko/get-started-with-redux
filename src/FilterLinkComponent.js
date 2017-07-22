@@ -1,27 +1,19 @@
-import { connect } from 'react-redux';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import { setVisibilityFilter } from './actionCreators';
-import Link from './linkComponent';
+const FilterLink = ({
+    filter,
+    children
+}) => (
+    <NavLink
+        to={filter === 'all' ? '' : filter}
+        activeStyle={{
+            textDecoration: 'none',
+            color: 'black',
+        }}
+    >
+        {children}
+    </NavLink>
+);
 
-const stateToProps = (
-    state,
-    ownProps
-) => ({
-    active: ownProps.filter === state.visibilityFilter
-});
-
-const dispatchToProps = (
-    dispatch,
-    ownProps
-) => ({
-    onClick() {
-        dispatch(setVisibilityFilter(ownProps.filter))
-    }
-});
-
-const FilterLinkContaner = connect(
-    stateToProps,
-    dispatchToProps
-)(Link);
-
-export default FilterLinkContaner;
+export default FilterLink;

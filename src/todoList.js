@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Todo from './todoComponent';
+import Todo from './todo';
 
 export default ({
     todos,

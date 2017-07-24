@@ -10,9 +10,7 @@ export default ({
 }) => (
     <div>
         <AddTodo />
-        <VisibleTodoList
-            filter={params.filter || 'all'}
-        />
+        <VisibleTodoList />
         <Footer />
     </div>
 )

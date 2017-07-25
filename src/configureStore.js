@@ -2,7 +2,7 @@ import { combineReducers, createStore } from 'redux';
 import throttle from 'lodash/throttle';
 import { v4 } from 'node-uuid';
 
-import todos from './todoReducer';
+import todos from './todos';
 import { loadState, saveState } from './localStorage';
 
 const initialState = {

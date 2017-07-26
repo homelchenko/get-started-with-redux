@@ -1,8 +1,8 @@
-import { combineReducers, createStore } from 'redux';
+import { createStore } from 'redux';
 import throttle from 'lodash/throttle';
 import { v4 } from 'node-uuid';
 
-import todos from './todos';
+import reducer from './reducers';
 import { loadState, saveState } from './localStorage';
 
 const initialState = {
@@ -26,10 +26,6 @@ if (!persistedState) {
 }
 
 const configureStore = () => {
-    const reducer = combineReducers({
-        todos,
-    });
-
     const store = createStore(
         reducer,
         persistedState);

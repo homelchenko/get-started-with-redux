@@ -1,6 +1,7 @@
 import { createStore } from 'redux';
 import throttle from 'lodash/throttle';
 
+import addLoggingToDispatch from './loggingDispatch';
 import predefineTodoList from './predefineTodoList';
 import reducer from './reducers';
 import { loadState, saveState } from './localStorage';
@@ -16,6 +17,10 @@ const configureStore = () => {
     const store = createStore(
         reducer,
         persistedState);
+
+    if (process.env.NODE_ENV !== 'production') {
+        store.dispatch = addLoggingToDispatch(store);
+    }
 
     store.subscribe(throttle(() => {
         saveState({

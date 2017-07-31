@@ -1,27 +1,14 @@
 import { createStore } from 'redux';
 import throttle from 'lodash/throttle';
-import { v4 } from 'node-uuid';
 
+import predefineTodoList from './predefineTodoList';
 import reducer from './reducers';
 import { loadState, saveState } from './localStorage';
 
-const initialState = {
-    todos: [{
-        type: 'ADD_TODO',
-        id: v4(),
-        text: 'Buy milk',
-        completed: false
-    }, {
-        type: 'ADD_TODO',
-        id: v4(),
-        text: 'Do the dishes',
-        completed: true
-    }]
-};
-
 let persistedState = loadState();
+
 if (!persistedState) {
-    persistedState = initialState;
+    persistedState = predefineTodoList();
     saveState(persistedState);
 }
 

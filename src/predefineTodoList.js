@@ -1,6 +1,6 @@
 import { v4 } from 'node-uuid';
 
-const predefineTodoList = () => {
+export const predefineTodoList = () => {
     const buyMilkTodo = {
         type: 'ADD_TODO',
         id: v4(),
@@ -37,4 +37,4 @@ const predefineTodoList = () => {
     });
 }
 
-export default predefineTodoList;
+export default predefineTodoList();

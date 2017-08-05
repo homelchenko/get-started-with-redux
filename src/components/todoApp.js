@@ -1,8 +1,8 @@
 import React from 'react';
 
-import AddTodo from './components/addTodo';
-import VisibleTodoList from './components/visibleTodoList';
-import Footer from './components/Footer';
+import AddTodo from './addTodo';
+import VisibleTodoList from './visibleTodoList';
+import Footer from './Footer';
 
 export default ({
     store,

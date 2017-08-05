@@ -2,7 +2,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
-import { toggleTodo } from '../actionCreators';
+import { toggleTodo } from '../actions';
 import TodoList from './todoList';
 import { getVisibleTodos } from '../reducers';
 

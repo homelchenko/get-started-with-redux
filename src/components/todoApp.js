@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AddTodo from './AddTodo';
-import VisibleTodoList from './visibleTodoList';
+import VisibleTodoList from './VisibleTodoList';
 import Footer from './Footer';
 
 export default ({

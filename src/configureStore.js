@@ -1,32 +1,20 @@
 import { createStore } from 'redux';
-import throttle from 'lodash/throttle';
 
 import addLoggingToDispatch from './loggingDispatch';
-import predefineTodoList from './predefineTodoList';
 import reducer from './reducers';
-import { loadState, saveState } from './localStorage';
+import { fetchTodos } from './api/';
 
-let persistedState = loadState();
-
-if (!persistedState) {
-    persistedState = predefineTodoList();
-    saveState(persistedState);
-}
+fetchTodos('all').then(todos => 
+    console.log(todos)
+);
 
 const configureStore = () => {
     const store = createStore(
-        reducer,
-        persistedState);
+        reducer);
 
     if (process.env.NODE_ENV !== 'production') {
         store.dispatch = addLoggingToDispatch(store);
     }
-
-    store.subscribe(throttle(() => {
-        saveState({
-            todos: store.getState().todos
-        });
-    }, 1000));
 
     return store;
 }

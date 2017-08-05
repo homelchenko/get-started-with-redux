@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import TodoApp from './components/todoApp';
+import TodoApp from './todoApp';
 
 const Root = ({ store }) => (
     <Provider store={store}>

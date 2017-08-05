@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 
 import { toggleTodo } from './actionCreators';
-import TodoList from './todoList';
+import TodoList from './components/todoList';
 import { getVisibleTodos } from './reducers';
 
 const mapStateToProps = (state, { match: { params }}) => ({

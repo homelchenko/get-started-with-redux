@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FilterLink from './FilterLink';
+import FilterLink from './components/FilterLink';
 
 export default ({
     store

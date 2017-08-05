@@ -1,26 +1,6 @@
 import { combineReducers } from 'redux';
 
-const todo = (state, action) => {
-    switch(action.type) {
-        case 'ADD_TODO':
-            return {
-                id: action.id,
-                text: action.text,
-                completed: action.completed
-            };
-        case 'TOGGLE_TODO':
-            if (state.id !== action.id){
-                return state;
-            }
-            
-            return {
-                ...state,
-                completed: !state.completed
-            };
-        default:
-            return state;
-    }    
-};
+import todo from './todo';
 
 const byId = (state = {}, action) => {
     switch(action.type) {

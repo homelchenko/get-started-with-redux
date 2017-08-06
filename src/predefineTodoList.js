@@ -2,14 +2,12 @@ import { v4 } from 'node-uuid';
 
 export const predefineTodoList = () => {
     const buyMilkTodo = {
-        type: 'ADD_TODO',
         id: v4(),
         text: 'Buy milk',
         completed: false
     };
 
     const doDishesTodo = {
-        type: 'ADD_TODO',
         id: v4(),
         text: 'Do the dishes',
         completed: true

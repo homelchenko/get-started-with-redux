@@ -12,4 +12,10 @@ const toggleTodo = (id) => ({
     id
 });
 
-export { addTodo, toggleTodo };
+const receiveTodos = (filter, todos) => ({
+    type: 'RECEIVE_DATA',
+    todos,
+    filter
+})
+
+export { addTodo, toggleTodo, receiveTodos };

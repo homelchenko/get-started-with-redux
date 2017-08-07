@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { toggleTodo, receiveTodos } from '../actions';
+import * as actions from '../actions';
 import TodoList from './TodoList';
 import { getVisibleTodos } from '../reducers';
 import { fetchTodos } from '../api/';
@@ -27,7 +27,12 @@ class VisibleTodoList extends Component {
     }
 
     render() {
-        return <TodoList {...this.props} />
+        const { toggleTodo, ...rest } = this.props;
+
+        return <TodoList
+            onTodoClick={toggleTodo}
+            {...rest}
+        />
     }
 }
 
@@ -42,10 +47,7 @@ const mapStateToProps = (state, { match: { params }}) => {
 
 VisibleTodoList = withRouter(connect(
     mapStateToProps,
-    {
-        onTodoClick: toggleTodo,
-        receiveTodos
-    }
+    actions
 )(VisibleTodoList));
 
 export default VisibleTodoList ;

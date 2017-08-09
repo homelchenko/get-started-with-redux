@@ -1,21 +1,19 @@
 import { v4 } from 'node-uuid';
 
-const addTodo = (text) => ({
+export const addTodo = (text) => ({
     type: 'ADD_TODO',
     id: v4(),
     text,
     completed: false
 });
 
-const toggleTodo = (id) => ({
+export const toggleTodo = (id) => ({
     type: 'TOGGLE_TODO',
     id
 });
 
-const receiveTodos = (filter, todos) => ({
+export const receiveTodos = (filter, todos) => ({
     type: 'RECEIVE_DATA',
     todos,
     filter
 })
-
-export { addTodo, toggleTodo, receiveTodos };

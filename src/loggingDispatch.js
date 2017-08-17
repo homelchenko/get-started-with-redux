@@ -1,7 +1,3 @@
-const addLoggingToDispatch = (store) => {
-    return logging(store)(store.dispatch);
-}
-
 export const logging = (store) => (next) => {
     if (!console.group) {
         return next;
@@ -18,5 +14,3 @@ export const logging = (store) => (next) => {
         return returnValue;
     }
 };
-
-export default addLoggingToDispatch;

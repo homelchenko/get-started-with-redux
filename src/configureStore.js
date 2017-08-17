@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 
-import { logging } from './loggingDispatch';
+import { logger } from './loggingDispatch';
 import { promise } from './promiseDispatch';
 import reducer from './reducers';
 
@@ -17,7 +17,7 @@ const configureStore = () => {
     const middleware = [];
 
     if (process.env.NODE_ENV !== 'production') {
-        middleware.push(logging);
+        middleware.push(logger);
     }
 
     middleware.push(promise);

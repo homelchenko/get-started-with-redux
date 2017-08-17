@@ -1,4 +1,4 @@
-export const logging = (store) => (next) => {
+export const logger = (store) => (next) => {
     if (!console.group) {
         return next;
     }

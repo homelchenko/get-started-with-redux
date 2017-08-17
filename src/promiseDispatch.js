@@ -1,12 +1,16 @@
 const addPromiseSupportToDispatch = (store) => {
-    const next = store.dispatch;
+    return promise(store)(store.dispatch);
+}
 
-    return (action) => {
-        if (typeof action.then === 'function') {
-            return action.then(next);
+export const promise = (store) => {
+    return (next) => {
+        return (action) => {
+            if (typeof action.then === 'function') {
+                return action.then(next);
+            }
+
+            return next;
         }
-
-        return next;
     }
 }
 

@@ -1,9 +1,9 @@
 const addLoggingToDispatch = (store) => {
-    return logging(store.dispatch)(store);
+    return logging(store)(store.dispatch);
 }
 
-export const logging = (next) => {
-    return (store) => {
+export const logging = (store) => {
+    return (next) => {
         if (!console.group) {
             return next;
         }

@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 
-import { logger } from './loggingDispatch';
+import logger from './loggingDispatch';
 import { promise } from './promiseDispatch';
 import reducer from './reducers';
 

@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 
 import logger from './loggingDispatch';
-import { promise } from './promiseDispatch';
+import promise from './promiseDispatch';
 import reducer from './reducers';
 
 const wrapDispatchWithMiddleware = (store, middlewares) => {

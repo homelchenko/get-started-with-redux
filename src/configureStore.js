@@ -1,8 +1,14 @@
 import { createStore } from 'redux';
 
-import addLoggingToDispatch, { logging } from './loggingDispatch';
-import addPromiseSupportToDispatch, { promise } from './promiseDispatch';
+import { logging } from './loggingDispatch';
+import { promise } from './promiseDispatch';
 import reducer from './reducers';
+
+const wrapDispatchWithMiddleware = (store, middlewares) => {
+    middlewares.forEach(middleware => {
+        store.dispatch = middleware(store)(store.dispatch);
+    });
+}
 
 const configureStore = () => {
     const store = createStore(
@@ -11,12 +17,12 @@ const configureStore = () => {
     const middleware = [];
 
     if (process.env.NODE_ENV !== 'production') {
-        store.dispatch = addLoggingToDispatch(store);
         middleware.push(logging);
     }
 
-    store.dispatch = addPromiseSupportToDispatch(store);
     middleware.push(promise);
+
+    wrapDispatchWithMiddleware(store, middleware);
 
     return store;
 }

@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
+import promise from 'redux-promise'
 
 import logger from './loggingDispatch';
-import promise from './promiseDispatch';
 import reducer from './reducers';
 
 const configureStore = () => {

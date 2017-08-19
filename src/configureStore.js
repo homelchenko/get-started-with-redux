@@ -14,15 +14,15 @@ const configureStore = () => {
     const store = createStore(
         reducer);
 
-    const middleware = [];
+    const middlewares = [];
 
     if (process.env.NODE_ENV !== 'production') {
-        middleware.push(promise);
+        middlewares.push(promise);
     }
 
-    middleware.push(logger);
+    middlewares.push(logger);
 
-    wrapDispatchWithMiddlewares(store, middleware);
+    wrapDispatchWithMiddlewares(store, middlewares);
 
     return store;
 }

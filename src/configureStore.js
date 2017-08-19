@@ -4,8 +4,8 @@ import logger from './loggingDispatch';
 import promise from './promiseDispatch';
 import reducer from './reducers';
 
-const wrapDispatchWithMiddleware = (store, middlewares) => {
-    middlewares.slice().forEach(middleware => {
+const wrapDispatchWithMiddlewares = (store, middlewares) => {
+    middlewares.slice().reverse().forEach(middleware => {
         store.dispatch = middleware(store)(store.dispatch);
     });
 }
@@ -22,7 +22,7 @@ const configureStore = () => {
 
     middleware.push(logger);
 
-    wrapDispatchWithMiddleware(store, middleware);
+    wrapDispatchWithMiddlewares(store, middleware);
 
     return store;
 }

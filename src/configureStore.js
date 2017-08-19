@@ -5,7 +5,7 @@ import promise from './promiseDispatch';
 import reducer from './reducers';
 
 const wrapDispatchWithMiddleware = (store, middlewares) => {
-    middlewares.forEach(middleware => {
+    middlewares.slice().forEach(middleware => {
         store.dispatch = middleware(store)(store.dispatch);
     });
 }
@@ -17,10 +17,10 @@ const configureStore = () => {
     const middleware = [];
 
     if (process.env.NODE_ENV !== 'production') {
-        middleware.push(logger);
+        middleware.push(promise);
     }
 
-    middleware.push(promise);
+    middleware.push(logger);
 
     wrapDispatchWithMiddleware(store, middleware);
 

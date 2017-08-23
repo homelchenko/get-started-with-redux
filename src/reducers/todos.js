@@ -24,9 +24,24 @@ const allIds = (state = [], action) => {
     }
 };
 
+const activeIds = (state = [], action) => {
+    return state;
+}
+
+const completedIds = (state = [], action) => {
+    return state;
+}
+
+const idsByFilter = combineReducers({
+    allIds,
+    activeIds,
+    completedIds,
+});
+
 const todos = combineReducers({
     byId,
     allIds,
+    idsByFilter,
 })
 
 export default todos;

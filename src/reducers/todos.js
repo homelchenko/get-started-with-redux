@@ -52,9 +52,9 @@ const completedIds = (state = [], action) => {
 }
 
 const idsByFilter = combineReducers({
-    allIds,
-    activeIds,
-    completedIds,
+    all: allIds,
+    active: activeIds,
+    completed: completedIds,
 });
 
 const todos = combineReducers({
@@ -69,14 +69,7 @@ const getAllTodos = (state, filter) => {
 };
 
 export const getVisibleTodos = (state, filter) => {
-    switch (filter) {
-        case 'all':
-            return getAllTodos(state, 'allIds');
-        case 'completed':
-            return getAllTodos(state, 'completedIds');
-        case 'active':
-            return getAllTodos(state, 'activeIds');
-        default:
-            throw new Error(`Unknown filter type (${filter})`);
-    }
+    return state.idsByFilter[filter].map(
+        id => state.byId[id]
+    );
 }

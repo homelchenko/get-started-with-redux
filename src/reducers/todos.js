@@ -59,28 +59,23 @@ const idsByFilter = combineReducers({
 
 const todos = combineReducers({
     byId,
-    allIds,
     idsByFilter,
 })
 
 export default todos;
 
-const getAllTodos = (state) => state.allIds.map(id => state.byId[id]);
+const getAllTodos = (state, filter) => {
+    return state.idsByFilter[filter].map(id => state.byId[id]);
+};
 
 export const getVisibleTodos = (state, filter) => {
-    const allTodos = getAllTodos(state);
-
     switch (filter) {
         case 'all':
-            return allTodos;
+            return getAllTodos(state, 'allIds');
         case 'completed':
-            return allTodos.filter(
-                todo => todo.completed
-            );
+            return getAllTodos(state, 'completedIds');
         case 'active':
-            return allTodos.filter(
-                todo => !todo.completed
-            );
+            return getAllTodos(state, 'activeIds');
         default:
             throw new Error(`Unknown filter type (${filter})`);
     }

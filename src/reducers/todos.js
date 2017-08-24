@@ -1,24 +1,27 @@
 import { combineReducers } from 'redux';
 
-import todo from './todo';
-
 const byId = (state = {}, action) => {
     switch(action.type) {
-        case 'ADD_TODO':
-        case 'TOGGLE_TODO':
-            return {
-                ...state,
-                [action.id]: todo(state[action.id], action)
-        };
+        case 'RECEIVE_TODOS':
+            const newState = { ...state };
+
+            action.response.forEach(todo =>
+                newState[todo.id] = todo
+            );
+
+            return newState;
         default:
             return state;
     }
 };
 
 const allIds = (state = [], action) => {
+    if (action.filter !== 'all')
+        return state;
+
     switch(action.type) {
-        case 'ADD_TODO':
-            return [...state, action.id];
+        case 'RECEIVE_TODOS':
+            return action.response.map(todo => todo.id);
         default:
             return state;
     }

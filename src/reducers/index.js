@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import byId from './byId';
+import byId, * as fromById from './byId';
 import createList, * as fromCreateList from './createList';
 
 const listByFilter = combineReducers({
@@ -18,5 +18,5 @@ export default todos;
 
 export const getVisibleTodos = (state, filter) => {
     const ids = fromCreateList.getIds(state.listByFilter[filter]);
-    return ids.map(id => state.byId[id]);
+    return ids.map(id => fromById.getTodo(state, id));
 }

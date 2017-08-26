@@ -3,16 +3,10 @@ import { combineReducers } from 'redux';
 import byId from './byId';
 import createList from './createList';
 
-const allIds = createList('all');
-
-const activeIds = createList('active');
-
-const completedIds = createList('completed');
-
 const idsByFilter = combineReducers({
-    all: allIds,
-    active: activeIds,
-    completed: completedIds,
+    all: createList('all'),
+    active: createList('active'),
+    completed: createList('completed'),
 });
 
 const todos = combineReducers({

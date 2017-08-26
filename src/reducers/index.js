@@ -1,42 +1,13 @@
 import { combineReducers } from 'redux';
 
 import byId from './byId';
+import createList from './createList';
 
-const allIds = (state = [], action) => {
-    if (action.filter !== 'all')
-        return state;
+const allIds = createList('all');
 
-    switch(action.type) {
-        case 'RECEIVE_TODOS':
-            return action.response.map(todo => todo.id);
-        default:
-            return state;
-    }
-};
+const activeIds = createList('active');
 
-const activeIds = (state = [], action) => {
-    if (action.filter !== 'active')
-        return state;
-
-    switch(action.type) {
-        case 'RECEIVE_TODOS':
-            return action.response.map(todo => todo.id);
-        default:
-            return state;
-    }
-}
-
-const completedIds = (state = [], action) => {
-    if (action.filter !== 'completed')
-        return state;
-
-    switch(action.type) {
-        case 'RECEIVE_TODOS':
-            return action.response.map(todo => todo.id);
-        default:
-            return state;
-    }
-}
+const completedIds = createList('completed');
 
 const idsByFilter = combineReducers({
     all: allIds,

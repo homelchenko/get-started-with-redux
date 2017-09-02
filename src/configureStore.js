@@ -4,8 +4,13 @@ import logger from 'redux-logger'
 
 import reducer from './reducers';
 
+const thunk = (store) => (next) => (action) =>
+    typeof action === 'function' ?
+        action(store.dispatch) :
+        next(action);
+
 const configureStore = () => {
-    const middlewares = [];
+    const middlewares = [thunk];
 
     middlewares.push(promise);
 

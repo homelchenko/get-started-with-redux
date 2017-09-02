@@ -10,9 +10,7 @@ const thunk = (store) => (next) => (action) =>
         next(action);
 
 const configureStore = () => {
-    const middlewares = [thunk];
-
-    middlewares.push(promise);
+    const middlewares = [thunk, promise];
 
     if (process.env.NODE_ENV !== 'production') {
         middlewares.push(logger);

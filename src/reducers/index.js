@@ -26,5 +26,5 @@ export const getIsFetching = (state, filter) => {
 }
 
 export const getErrorMessage = (state, filter) => {
-    return "Boom!";
+    return fromCreateList.getErrorMessage();
 }

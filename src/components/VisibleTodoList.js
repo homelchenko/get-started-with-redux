@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 import TodoList from './TodoList';
+import FetchErrorMessage from './FetchErrorMessage';
 import { getVisibleTodos, getIsFetching } from '../reducers';
 
 class VisibleTodoList extends Component {
@@ -24,7 +25,13 @@ class VisibleTodoList extends Component {
     }
 
     render() {
-        const { toggleTodo, isFetching, todos } = this.props;
+        const { toggleTodo, isFetching, errorMessage, todos } = this.props;
+
+        if (errorMessage) {
+            return <FetchErrorMessage
+                message={errorMessage}
+            />
+        }
 
         if (isFetching && !todos.length)
             return <p>Loading...</p>;
@@ -42,6 +49,7 @@ const mapStateToProps = (state, { match: { params }}) => {
     return {
         todos: getVisibleTodos(state, filter),
         isFetching: getIsFetching(state, filter),
+        errorMessage: 'Boom!',
         filter
     };
 };

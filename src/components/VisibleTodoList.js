@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import TodoList from './TodoList';
 import FetchErrorMessage from './FetchErrorMessage';
-import { getVisibleTodos, getIsFetching } from '../reducers';
+import { getVisibleTodos, getIsFetching, getErrorMessage } from '../reducers';
 
 class VisibleTodoList extends Component {
     componentDidMount() {
@@ -49,7 +49,7 @@ const mapStateToProps = (state, { match: { params }}) => {
     return {
         todos: getVisibleTodos(state, filter),
         isFetching: getIsFetching(state, filter),
-        errorMessage: 'Boom!',
+        errorMessage: getErrorMessage(state, filter),
         filter
     };
 };

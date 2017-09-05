@@ -34,8 +34,10 @@ const createList = (filter) => {
         switch(action.type) {
             case 'FETCH_TODOS_SUCCESS':
                 return null;
+            case 'FETCH_TODOS_FAILURE':
+                return action.message;
             default:
-                return "Boom!";
+                return state;
         }
     }
 

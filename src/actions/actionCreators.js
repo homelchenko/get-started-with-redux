@@ -33,7 +33,12 @@ export const fetchTodos = (filter) => (dispatch, getState) => {
 
     dispatch(requestTodos(filter));
 
-    return api.fetchTodos(filter).then(response =>
-        dispatch(receiveTodos(filter, response))
+    return api.fetchTodos(filter).then(
+        response => dispatch(receiveTodos(filter, response)),
+
+        error => dispatch({
+            type: 'FETCH_TODOS_FAILURE',
+            message: `You got an error. ${error.message}`
+        })
     );
 }

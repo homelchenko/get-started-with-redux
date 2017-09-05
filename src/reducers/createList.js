@@ -31,7 +31,12 @@ const createList = (filter) => {
         if (action.filter !== filter)
             return state;
 
-        return "Boom!";
+        switch(action.type) {
+            case 'RECEIVE_TODOS':
+                return null;
+            default:
+                return "Boom!";
+        }
     }
 
     return combineReducers({

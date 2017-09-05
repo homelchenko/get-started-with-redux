@@ -27,9 +27,17 @@ const createList = (filter) => {
         }
     }
 
+    const errorMessage = (state = null, action) => {
+        if (action.filter !== filter)
+            return state;
+
+        return "Boom!";
+    }
+
     return combineReducers({
         ids,
-        isFetching
+        isFetching,
+        errorMessage
     });
 };
 
@@ -39,4 +47,4 @@ export const getIds = (state) => state.ids;
 
 export const getIsFetching = (state) => state.isFetching;
 
-export const getErrorMessage = (state) => "Boom!";
+export const getErrorMessage = (state) => state.errorMessage;

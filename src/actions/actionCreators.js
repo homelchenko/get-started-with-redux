@@ -16,7 +16,7 @@ export const toggleTodo = (id) => ({
 });
 
 const requestTodos = (filter) => ({
-    type: 'REQUEST_TODOS',
+    type: 'FETCH_TODOS_REQUEST',
     filter
 });
 

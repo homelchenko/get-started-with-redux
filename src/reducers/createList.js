@@ -18,7 +18,7 @@ const createList = (filter) => {
             return state;
 
         switch(action.type) {
-            case 'REQUEST_TODOS':
+            case 'FETCH_TODOS_REQUEST':
                 return true;
             case 'FETCH_TODOS_SUCCESS':
                 return false;

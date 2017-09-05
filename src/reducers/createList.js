@@ -6,7 +6,7 @@ const createList = (filter) => {
             return state;
 
         switch(action.type) {
-            case 'RECEIVE_TODOS':
+            case 'FETCH_TODOS_SUCCESS':
                 return action.response.map(todo => todo.id);
             default:
                 return state;
@@ -20,7 +20,7 @@ const createList = (filter) => {
         switch(action.type) {
             case 'REQUEST_TODOS':
                 return true;
-            case 'RECEIVE_TODOS':
+            case 'FETCH_TODOS_SUCCESS':
                 return false;
             default:
                 return state;
@@ -32,7 +32,7 @@ const createList = (filter) => {
             return state;
 
         switch(action.type) {
-            case 'RECEIVE_TODOS':
+            case 'FETCH_TODOS_SUCCESS':
                 return null;
             default:
                 return "Boom!";

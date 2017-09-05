@@ -21,7 +21,7 @@ const requestTodos = (filter) => ({
 });
 
 const receiveTodos = (filter, response) => ({
-    type: 'RECEIVE_TODOS',
+    type: 'FETCH_TODOS_SUCCESS',
     filter,
     response,
 })

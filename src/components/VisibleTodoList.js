@@ -30,6 +30,7 @@ class VisibleTodoList extends Component {
         if (errorMessage) {
             return <FetchError
                 message={errorMessage}
+                onRetry={() => this.fetchData()}
             />
         }
 

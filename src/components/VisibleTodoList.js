@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 import TodoList from './TodoList';
-import FetchErrorMessage from './FetchErrorMessage';
+import FetchError from './FetchError';
 import { getVisibleTodos, getIsFetching, getErrorMessage } from '../reducers';
 
 class VisibleTodoList extends Component {
@@ -28,7 +28,7 @@ class VisibleTodoList extends Component {
         const { toggleTodo, isFetching, errorMessage, todos } = this.props;
 
         if (errorMessage) {
-            return <FetchErrorMessage
+            return <FetchError
                 message={errorMessage}
             />
         }

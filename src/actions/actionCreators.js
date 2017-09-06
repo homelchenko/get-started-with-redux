@@ -26,16 +26,19 @@ export const fetchTodos = (filter) => (dispatch, getState) => {
     });
 
     return api.fetchTodos(filter).then(
-        response => dispatch({
-            type: 'FETCH_TODOS_SUCCESS',
-            filter,
-            response,
-        }),
-
-        error => dispatch({
-            type: 'FETCH_TODOS_FAILURE',
-            filter: filter,
-            message: `You got an error. ${error.message}`
-        })
+        response => {
+            dispatch({
+                type: 'FETCH_TODOS_SUCCESS',
+                filter,
+                response,
+            })
+        },
+        error => {
+            dispatch({
+                type: 'FETCH_TODOS_FAILURE',
+                filter: filter,
+                message: `You got an error. ${error.message}`
+            })
+        }
     );
 }

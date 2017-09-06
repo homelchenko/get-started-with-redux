@@ -27,15 +27,15 @@ class VisibleTodoList extends Component {
     render() {
         const { toggleTodo, isFetching, errorMessage, todos } = this.props;
 
-        if (errorMessage) {
+        if (isFetching && !todos.length)
+            return <p>Loading...</p>;
+
+        if (errorMessage && !todos.length) {
             return <FetchError
                 message={errorMessage}
                 onRetry={() => this.fetchData()}
             />
         }
-
-        if (isFetching && !todos.length)
-            return <p>Loading...</p>;
 
         return <TodoList
             todos={todos}

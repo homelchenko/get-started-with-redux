@@ -16,3 +16,19 @@ export const fetchTodos = (filter) =>
                 throw new Error(`Unknown filter ${filter}`);
         }
     });
+
+let id = 0;
+
+export const addTodo = (text) => {
+    id++;
+
+    const newTodo = {
+        id,
+        text,
+        completed: false
+    }
+
+    return new Promise((resolve) => {
+        resolve(newTodo);
+    });
+}

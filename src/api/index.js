@@ -29,6 +29,7 @@ export const addTodo = (text) => {
     }
 
     return new Promise((resolve) => {
+        todos.push(newTodo);
         resolve(newTodo);
     });
 }

@@ -10,10 +10,7 @@ const createList = (filter) => {
                 return action.response.map(todo => todo.id);
             case 'ADD_TODO_SUCCESS':
                 if (filter === 'all' || filter === 'active')
-                    return [
-                        ...state,
-                        action.response.id
-                    ];
+                    return [...state, action.response.id];
 
                 return state;
             default:

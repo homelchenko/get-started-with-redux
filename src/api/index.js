@@ -23,9 +23,10 @@ export const addTodo = (text) => {
     });
 }
 
-export const toggleTodo = (id) => {
-    return new Promise((resolve) => {
-        const todo = fakeDatabase.toggleTodo(id);
-        resolve(todo);
-    });
-}
+export const toggleTodo = (id) =>
+    delay(300).then(() =>
+        new Promise((resolve) => {
+            const todo = fakeDatabase.toggleTodo(id);
+            resolve(todo);
+        })
+    );

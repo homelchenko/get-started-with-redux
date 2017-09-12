@@ -26,6 +26,14 @@ const fakedatabase = {
         todos.push(newTodo);
 
         return newTodo;
+    },
+    toggleTodo: (id) => {
+        const todo = todos.find(t => t.id === id);
+        if (todo) {
+            todo.completed = !todo.completed;
+        }
+
+        return todo;
     }
 }
 

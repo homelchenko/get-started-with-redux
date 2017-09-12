@@ -17,11 +17,12 @@ export const fetchTodos = (filter) =>
         }
     });
 
-export const addTodo = (text) => {
-    return new Promise((resolve) => {
-        resolve(fakeDatabase.addTodo(text));
-    });
-}
+export const addTodo = (text) =>
+    delay(400).then(() =>
+        new Promise((resolve) => {
+            resolve(fakeDatabase.addTodo(text));
+        })
+    );
 
 export const toggleTodo = (id) =>
     delay(300).then(() =>
